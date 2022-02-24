@@ -7,6 +7,7 @@ app.MapGet("/{IPAddress}", async (con) => {
     StreamWriter sw = new StreamWriter(con.Response.Body);
     string IP = (string)con.Request.RouteValues["IPAddress"];
     TFTPServer server = con.RequestServices.GetService<TFTPServer>();
+    Console.WriteLine(DateTime.Now.ToString() + ": Sending config for: " + IP);
     if (server.Configs.ContainsKey(IP))
     {
         con.Response.Body.Write(server.Configs[IP].ToArray());
