@@ -10,11 +10,11 @@ app.MapGet("/{IPAddress}", async (con) => {
     Console.WriteLine(DateTime.Now.ToString() + ": Sending config for: " + IP);
     if (server.Configs.ContainsKey(IP))
     {
-        con.Response.Body.Write(server.Configs[IP].ToArray());
+        await con.Response.Body.WriteAsync(server.Configs[IP].ToArray());
     }
     else
     {
-        sw.WriteLine("Config not found.");
+        await sw.WriteLineAsync("Config not found.");
         await sw.FlushAsync();
     }
     await con.Response.Body.FlushAsync();
