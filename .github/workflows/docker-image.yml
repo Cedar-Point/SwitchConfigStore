@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build the Docker image
-      run: docker build ./SwitchConfigStore --file Dockerfile --tag switchconfigstore:$(date +%s)
+      run: docker build . --file ./SwitchConfigStore/Dockerfile --tag switchconfigstore:$(date +%s)
