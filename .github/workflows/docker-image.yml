@@ -17,4 +17,4 @@ jobs:
     - name: Build the Docker image
       run: docker build . --file ./SwitchConfigStore/Dockerfile --tag switchconfigstore:latest
     - name: Publish the Docker image
-      run: docker push ghcr.io/Cedar-Point/switchconfigstore:latest
+      run: docker push ghcr.io/cedar-point/switchconfigstore:latest
